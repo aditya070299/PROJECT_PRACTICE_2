@@ -1,0 +1,83 @@
+<% layout("/layouts/boilerplate") -%>
+<body>
+  <div class="row">
+    <div class="col-8 offset-2">
+      <h3>Create New WonderTravel</h3>
+
+      <form
+        method="POST"
+        action="/listings"
+        novalidate
+        class="needs-validation"
+      >
+        <div class="mb-3">
+          <label for="title" class="form-label">Titel: </label><br />
+          <input
+            name="listing[title]"
+            placeholder="Enter your Title"
+            class="form-controle"
+            required
+          />
+          <div class="valid-feedback">Looks good!</div>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description: </label
+          ><br />
+          <textarea
+            name="listing[description]"
+            placeholder="Enter here"
+            class="form-controle"
+            required
+          ></textarea>
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">enter a valid data.</div>
+        </div>
+        <div class="mb-3">
+          <label for="image" class="form-label">Image URL: </label><br />
+          <input
+            name="listing[image]"
+            placeholder="Image URL"
+            class="form-controle"
+            required
+          />
+        </div>
+        <div class="row">
+          <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Price: </label><br />
+            <input
+              name="listing[price]"
+              placeholder="price"
+              class="form-controle"
+              required
+            />
+            <div class="invalid-feedback">enter a valid price.</div>
+          </div>
+          <div class="mb-3 col-8">
+            <label for="country" class="form-label">Country: </label><br />
+            <input
+              name="listing[country]"
+              placeholder="country"
+              class="form-controle"
+              required
+            />
+            <div class="invalid-feedback">Please choose a country.</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="location" class="form-label">Location: </label><br />
+          <input
+            name="listing[location]"
+            placeholder="Enter location"
+            class="form-controle"
+            required
+          />
+          <div class="invalid-feedback">Please choose a city.</div>
+        </div>
+
+        <button class="btn btn-dark add-btn">Submit</button>
+      </form>
+      <hr />
+    </div>
+  </div>
+</body>

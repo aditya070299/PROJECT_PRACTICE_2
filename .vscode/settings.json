@@ -1,0 +1,7 @@
+{
+  "editor.defaultFormatter": null,
+  "livePreview.defaultPreviewPath": "/views/listings/new.ejs",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
