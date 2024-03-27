@@ -9,11 +9,9 @@
             <img src="<%=listings.image%>" class="card-img-top" alt="alt_image">
 
             <div class="card-body">
-                <p class="card-text "><b>
-                        <%=listings.title%>
-                    </b></p>
-
-
+                <p class="card-text ">
+                    <i>Owner : <%= listings.owner.username%></i>
+                </p>
                 <p>
                     <%=listings.description%>
                 </p>
@@ -28,7 +26,7 @@
                 </p>
             </div>
 
-
+            <%if(currentUser &&currentUser._id.equals(listings.owner._id)){%>
             <div class="btns  col-3 offset-0.2">
                 <a href="/listings/<%= listings._id %>/edit" class="btn btn-dark add-btn edit-btn col-1 offset-2"
                     style="text-decoration: none;">Edit</a><br><br>
@@ -36,13 +34,16 @@
                 <form method="POST" action="/listings/<%= listings._id %>?_method=DELETE">
                     <button class="btn btn-dark add-btn edit-btn dlt-btn offset-4">Delete</button>
                 </form>
-
             </div>
+            <%}%>
         </div>
         <hr>
 
+
+        
         <div class="cards show-card offset-3">
             <h4>Leave a Review</h4>
+            <% if(currentUser){%>
             <form action="/listings/<%=listings._id%>/reviews" method="Post" novalidate class="needs-validation">
                 <div class="mb-2 mt-2">
                     <label for="rating">Rating : </label>
@@ -55,13 +56,14 @@
                 </div>
                 <button class="btns btn btn-dark add-btn edit-btn col-1 offset-2">Submit</button>
             </form>
+            <%}%>
         </div>
         <!-- <div class="cards show-card offset-3"> -->
-            <div class="row">
+            <div class="row ">
             <%for(reviews of listings.reviews){%>
                 
             <div class="card-body-review col-5 ms-3 mb-3">
-                <h5 class="card-title">Aditya</h5>
+                <h5 class="card-title"><%= reviews.author.username%></h5>
                 <p class="card-text"><%= reviews.comment %></p>
                 <p class="card-text">Ratings: <%= reviews.rating %> Stars</p>
                 <form class="mb-3" 
